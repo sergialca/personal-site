@@ -1,0 +1,98 @@
+---
+interface Props {
+  time?: string;
+}
+
+const { time = "22:02" } = Astro.props;
+---
+
+<div class="phone">
+  <div class="island" aria-hidden="true"></div>
+  <div class="status">
+    <span>{time}</span>
+    <span class="signal">
+      <i></i><i></i><i></i>
+    </span>
+  </div>
+  <div class="screen">
+    <slot />
+  </div>
+  <div class="home" aria-hidden="true"></div>
+</div>
+
+<style>
+  .phone {
+    position: relative;
+    width: 188px;
+    height: 390px;
+    border-radius: 32px;
+    background: #0a0a0a;
+    padding: 10px 8px 12px;
+    box-shadow:
+      0 0 0 3px #1c1c1c,
+      0 18px 40px rgba(0, 0, 0, 0.45);
+    flex: 0 0 auto;
+  }
+
+  .island {
+    position: absolute;
+    top: 14px;
+    left: 50%;
+    width: 62px;
+    height: 16px;
+    transform: translateX(-50%);
+    background: #000;
+    border-radius: 999px;
+    z-index: 2;
+  }
+
+  .status {
+    position: absolute;
+    top: 14px;
+    left: 18px;
+    right: 16px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 9px;
+    font-weight: 600;
+    color: #111;
+    z-index: 1;
+  }
+
+  .signal {
+    display: flex;
+    align-items: flex-end;
+    gap: 1.5px;
+    height: 8px;
+  }
+
+  .signal i {
+    display: block;
+    width: 2.5px;
+    background: #111;
+    border-radius: 1px;
+  }
+
+  .signal i:nth-child(1) { height: 3px; }
+  .signal i:nth-child(2) { height: 5px; }
+  .signal i:nth-child(3) { height: 7px; }
+
+  .screen {
+    height: 100%;
+    border-radius: 24px;
+    background: #fff;
+    overflow: hidden;
+    color: #111;
+  }
+
+  .home {
+    position: absolute;
+    bottom: 6px;
+    left: 50%;
+    width: 72px;
+    height: 4px;
+    transform: translateX(-50%);
+    background: #2a2a2a;
+    border-radius: 999px;
+  }
+</style>

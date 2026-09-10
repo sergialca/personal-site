@@ -1,0 +1,63 @@
+---
+interface Props {
+  eyebrow: string;
+  tags: string[];
+  title: string;
+  description: string;
+}
+
+const { eyebrow, tags, title, description } = Astro.props;
+---
+
+<div class="copy">
+  <p class="eyebrow">{eyebrow}</p>
+  <div class="tags">
+    {tags.map((tag) => <span>{tag}</span>)}
+  </div>
+  <h3>{title}</h3>
+  <p class="desc">{description}</p>
+  <slot />
+</div>
+
+<style>
+  .copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+  }
+
+  .eyebrow {
+    color: var(--green);
+    font-size: 0.78rem;
+    font-weight: 600;
+    margin-bottom: 0.55rem;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .tags span {
+    border: 1px solid var(--border-strong);
+    border-radius: 999px;
+    padding: 0.18rem 0.55rem;
+    color: var(--text-muted);
+    font-size: 0.72rem;
+  }
+
+  h3 {
+    font-size: 1.7rem;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.55rem;
+  }
+
+  .desc {
+    color: var(--text-muted);
+    max-width: 36ch;
+    margin-bottom: 1.1rem;
+  }
+</style>

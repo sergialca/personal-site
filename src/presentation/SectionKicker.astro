@@ -1,0 +1,37 @@
+---
+interface Props {
+  index: string;
+  label: string;
+  align?: "left" | "center";
+}
+
+const { index, label, align = "left" } = Astro.props;
+---
+
+<p class:list={["kicker", align]}>
+  <span>{index}</span>
+  <span class="slash">//</span>
+  <span>{label}</span>
+</p>
+
+<style>
+  .kicker {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-bottom: 0.7rem;
+    color: var(--green);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .center {
+    justify-content: center;
+  }
+
+  .slash {
+    opacity: 0.7;
+  }
+</style>

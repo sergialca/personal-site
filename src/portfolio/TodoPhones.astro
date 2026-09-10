@@ -1,0 +1,223 @@
+---
+import PhoneFrame from "./PhoneFrame.astro";
+---
+
+<div class="cluster">
+  <PhoneFrame>
+      <div class="login">
+        <h3>Welcome back</h3>
+        <p class="sub">Sign in to your account</p>
+        <label>
+          Email
+          <input type="text" value="hi@example.com" readonly tabindex="-1" />
+        </label>
+        <label class="password">
+          <span class="row">Password <span class="forgot">Forgot?</span></span>
+          <input type="password" value="password" readonly tabindex="-1" />
+        </label>
+        <button type="button">Sign in</button>
+        <p class="signup">Don't have an account? <b>Sign up</b></p>
+      </div>
+    </PhoneFrame>
+
+    <PhoneFrame>
+      <div class="tasks">
+        <h3>Tasks</h3>
+        <p class="hint">Search</p>
+        <article>
+          <p class="title">Task1</p>
+          <p class="desc">Description</p>
+          <div class="meta">
+            <span>Fri 1 Apr 2024, 01:00</span>
+          </div>
+        </article>
+        <article>
+          <p class="title">Task2</p>
+          <p class="desc">Team review</p>
+          <div class="meta">
+            <span>Mon 3 Apr 2024, 16:30</span>
+          </div>
+        </article>
+      </div>
+    </PhoneFrame>
+
+    <PhoneFrame>
+      <div class="detail">
+        <h3>Tasks</h3>
+        <p class="hint">Task details</p>
+        <article class="info">
+          <p class="title">Task 1</p>
+          <p class="desc">Description</p>
+          <p class="due">Due 9 Sep 2026 at 23:00</p>
+        </article>
+        <div class="action">
+          <p class="time">at 23:00</p>
+          <button type="button">Complete</button>
+        </div>
+      </div>
+    </PhoneFrame>
+</div>
+
+<style>
+  .cluster {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .cluster > :global(* + *) {
+    margin-left: -18px;
+  }
+
+  .login,
+  .tasks,
+  .detail {
+    padding: 38px 14px 12px;
+    height: 100%;
+    font-size: 10px;
+  }
+
+  h3 {
+    font-size: 15px;
+    letter-spacing: -0.03em;
+    margin-bottom: 2px;
+  }
+
+  .sub,
+  .hint {
+    color: #8b8f97;
+    margin-bottom: 12px;
+  }
+
+  label {
+    display: block;
+    color: #6b7280;
+    margin-bottom: 8px;
+  }
+
+  input {
+    width: 100%;
+    margin-top: 4px;
+    border: 0;
+    background: #f3f4f6;
+    border-radius: 10px;
+    padding: 8px 10px;
+    font-size: 10px;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .forgot {
+    color: #6b7280;
+  }
+
+  .login button {
+    width: 100%;
+    margin-top: 8px;
+    border: 0;
+    border-radius: 10px;
+    padding: 9px;
+    font-size: 11px;
+    font-weight: 600;
+    background: #111;
+    color: #fff;
+    cursor: default;
+  }
+
+  .signup {
+    text-align: center;
+    margin-top: 10px;
+    color: #8b8f97;
+    white-space: nowrap;
+  }
+
+  article {
+    background: #f6f7f9;
+    border-radius: 12px;
+    padding: 10px;
+    margin-bottom: 8px;
+  }
+
+  .k {
+    color: #9aa0a8;
+    font-size: 9px;
+    margin-bottom: 2px;
+  }
+
+  .title {
+    font-weight: 600;
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+
+  .meta {
+    display: flex;
+    justify-content: space-between;
+    color: #8b8f97;
+  }
+
+  .info {
+    background: #f3f4f6;
+    border-radius: 12px;
+    padding: 12px 10px;
+    margin-bottom: 8px;
+  }
+
+  .info .title {
+    margin-bottom: 6px;
+  }
+
+  .desc,
+  .due,
+  .time {
+    color: #8b8f97;
+    line-height: 1.35;
+  }
+
+  .due {
+    margin-top: 4px;
+  }
+
+  .action {
+    display: grid;
+    grid-template-columns: 1fr 78px;
+    gap: 8px;
+    min-height: 78px;
+  }
+
+  .action .time {
+    background: #f3f4f6;
+    border-radius: 12px;
+    display: flex;
+    align-items: flex-end;
+    padding: 10px;
+  }
+
+  .action button {
+    border: 0;
+    border-radius: 12px;
+    background: #2f7d4a;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: default;
+  }
+
+  @media (max-width: 900px) {
+    .cluster {
+      flex-direction: column;
+      overflow: visible;
+      padding: 0.2rem 0;
+      max-width: 100%;
+      gap: 1.25rem;
+    }
+
+    .cluster > :global(* + *) {
+      margin-left: 0;
+    }
+  }
+</style>

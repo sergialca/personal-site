@@ -1,0 +1,111 @@
+---
+import SectionKicker from "../presentation/SectionKicker.astro";
+import CalendarWidget from "./CalendarWidget.astro";
+import ProjectCopy from "./ProjectCopy.astro";
+import TodoPhones from "./TodoPhones.astro";
+---
+
+<section class="section wrap" id="projects">
+  <SectionKicker index="01" label="Portfolio" />
+  <h2>Featured Projects</h2>
+
+  <article class="card">
+    <TodoPhones />
+    <ProjectCopy
+      eyebrow="Mobile App"
+      tags={["iOS / Android"]}
+      title="To-do app"
+      description="To do app made with Expo and Supabase."
+    >
+      <a class="link" href="https://github.com/sergialca/to-do-app" target="_blank" rel="noreferrer">
+        View code on GitHub
+        <span aria-hidden="true">→</span>
+      </a>
+    </ProjectCopy>
+  </article>
+
+  <article class="card taptime">
+    <CalendarWidget />
+    <ProjectCopy
+      eyebrow=""
+      tags={["Web platform"]}
+      title="Taptime"
+      description="Taptime is a website for booking time slots on a chosen day. It is made with React, a Parse Server connected to MongoDB and a node.js server running for sending emails."
+    >
+      <div class="chips">
+        <span>React</span>
+        <span>Parse Server</span>
+        <span>MongoDB</span>
+        <span>Node.js Mailer</span>
+      </div>
+      <a class="link" href="https://github.com/sergialca/taptime" target="_blank" rel="noreferrer">
+        View code on GitHub
+        <span aria-hidden="true">→</span>
+      </a>
+    </ProjectCopy>
+  </article>
+</section>
+
+<style>
+  .section {
+    padding-bottom: 5.5rem;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 4vw, 2.7rem);
+    letter-spacing: -0.04em;
+    margin-bottom: 1.6rem;
+  }
+
+  .card {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(240px, 0.85fr);
+    gap: 2rem;
+    align-items: center;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: 1.6rem 1.8rem;
+    box-shadow: var(--shadow);
+  }
+
+  .card + .card {
+    margin-top: 1.15rem;
+  }
+
+  .link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .link:hover {
+    color: var(--text);
+  }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
+
+  .chips span {
+    background: #101117;
+    border: 1px solid var(--border-strong);
+    border-radius: 999px;
+    padding: 0.32rem 0.7rem;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+  }
+
+  @media (max-width: 900px) {
+    .card,
+    .taptime {
+      grid-template-columns: 1fr;
+      padding: 1.2rem;
+    }
+  }
+</style>

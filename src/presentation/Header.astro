@@ -1,0 +1,134 @@
+---
+const links = [
+  { href: "#projects", label: "Projects" },
+  { href: "#about", label: "About" },
+  { href: "#contact", label: "Contact" },
+];
+---
+
+<header class="header">
+  <div class="wrap bar">
+    <div class="brand-group">
+      <a class="brand" href="#top">
+        <span class="mark" aria-hidden="true"></span>
+        SergiAlcaraz
+      </a>
+      <span class="available">
+        <span class="dot" aria-hidden="true"></span>
+        Available for projects
+      </span>
+    </div>
+
+    <nav class="nav" aria-label="Primary">
+      {links.map((link) => (
+        <a href={link.href}>{link.label}</a>
+      ))}
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    height: var(--header);
+    background: rgba(12, 13, 17, 0.86);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid transparent;
+  }
+
+  .bar {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
+  .brand-group {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    min-width: 0;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-weight: 700;
+    font-size: 0.98rem;
+    letter-spacing: -0.02em;
+  }
+
+  .mark {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: var(--green);
+    box-shadow: 0 0 0 4px var(--green-soft);
+  }
+
+  .available {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.28rem 0.7rem 0.28rem 0.55rem;
+    border-radius: 999px;
+    background: var(--green-soft);
+    color: var(--green);
+    font-size: 0.75rem;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    background: var(--green);
+    box-shadow: 0 0 0 0 rgba(62, 207, 142, 0.7);
+    animation: pulse 2s ease-out infinite;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+  }
+
+  .nav a {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    font-weight: 500;
+    transition: color 0.15s ease;
+  }
+
+  .nav a:hover {
+    color: var(--text);
+  }
+
+  @keyframes pulse {
+    70% {
+      box-shadow: 0 0 0 6px rgba(62, 207, 142, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(62, 207, 142, 0);
+    }
+  }
+
+  @media (max-width: 720px) {
+    .available {
+      display: none;
+    }
+
+    .nav {
+      gap: 1rem;
+    }
+
+    .nav a {
+      font-size: 0.85rem;
+    }
+  }
+</style>

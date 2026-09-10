@@ -1,0 +1,58 @@
+---
+---
+
+<section class="hero wrap" id="top">
+  <p class="location">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z"
+        stroke="currentColor"
+        stroke-width="1.8"
+      ></path>
+      <circle cx="12" cy="9" r="2.2" fill="currentColor"></circle>
+    </svg>
+    Barcelona, Spain
+  </p>
+  <h1>Hi, I'm <span>Sergi Alcaraz</span></h1>
+  <p class="lede">I'm a frontend engineer based in Barcelona.</p>
+</section>
+
+<style>
+  .hero {
+    padding: 4.25rem 0 2.1rem;
+  }
+
+  .location {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.32rem 0.75rem;
+    border-radius: 999px;
+    background: var(--green-soft);
+    color: var(--green);
+    font-size: 0.78rem;
+    font-weight: 500;
+    margin-bottom: 1.15rem;
+  }
+
+  h1 {
+    font-size: clamp(2.6rem, 6.4vw, 4.6rem);
+    font-weight: 700;
+    letter-spacing: -0.045em;
+    line-height: 1.05;
+    margin-bottom: 0.85rem;
+  }
+
+  h1 span {
+    background: var(--name-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .lede {
+    color: var(--text-muted);
+    font-size: clamp(1.05rem, 2vw, 1.35rem);
+    font-weight: 400;
+  }
+</style>
