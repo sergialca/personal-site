@@ -1,0 +1,66 @@
+---
+import PhoneFrame from "./PhoneFrame.astro";
+
+const screens = [
+  {
+    src: "/dadawallet_img/dashboard.png",
+    alt: "Dadawallet dashboard with portfolio value, receive and send actions, and assets",
+  },
+  {
+    src: "/dadawallet_img/stocks.png",
+    alt: "Dadawallet trade screen listing on-chain stocks from Ondo Global Markets",
+  },
+  {
+    src: "/dadawallet_img/buy_sell.png",
+    alt: "Dadawallet buy and sell screen for Microsoft stock",
+  },
+];
+---
+
+<div class="cluster">
+  {
+    screens.map((screen) => (
+      <PhoneFrame hideStatus>
+        <img src={screen.src} alt={screen.alt} />
+      </PhoneFrame>
+    ))
+  }
+</div>
+
+<style>
+  .cluster {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .cluster > :global(* + *) {
+    margin-left: -18px;
+  }
+
+  .cluster :global(.screen) {
+    background: #0b1c24;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+  }
+
+  @media (max-width: 900px) {
+    .cluster {
+      flex-direction: column;
+      overflow: visible;
+      padding: 0.2rem 0;
+      max-width: 100%;
+      gap: 1.25rem;
+    }
+
+    .cluster > :global(* + *) {
+      margin-left: 0;
+    }
+  }
+</style>

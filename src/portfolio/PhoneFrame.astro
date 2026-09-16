@@ -1,19 +1,24 @@
 ---
 interface Props {
   time?: string;
+  hideStatus?: boolean;
 }
 
-const { time = "22:02" } = Astro.props;
+const { time = "22:02", hideStatus = false } = Astro.props;
 ---
 
 <div class="phone">
   <div class="island" aria-hidden="true"></div>
-  <div class="status">
-    <span>{time}</span>
-    <span class="signal">
-      <i></i><i></i><i></i>
-    </span>
-  </div>
+  {
+    !hideStatus && (
+      <div class="status">
+        <span>{time}</span>
+        <span class="signal">
+          <i></i><i></i><i></i>
+        </span>
+      </div>
+    )
+  }
   <div class="screen">
     <slot />
   </div>

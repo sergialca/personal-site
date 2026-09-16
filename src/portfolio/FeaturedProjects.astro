@@ -1,6 +1,7 @@
 ---
 import SectionKicker from "../presentation/SectionKicker.astro";
 import CalendarWidget from "./CalendarWidget.astro";
+import DadawalletPhones from "./DadawalletPhones.astro";
 import ProjectCopy from "./ProjectCopy.astro";
 import TodoPhones from "./TodoPhones.astro";
 ---
@@ -8,6 +9,26 @@ import TodoPhones from "./TodoPhones.astro";
 <section class="section wrap" id="projects">
   <SectionKicker index="01" label="Portfolio" />
   <h2>Featured Projects</h2>
+
+  <article class="card dadawallet">
+    <ProjectCopy
+      eyebrow="Mobile App"
+      tags={["iOS / Android"]}
+      title="Dadawallet"
+      description="Dadawallet delivers a familiar banking-app experience to on-chain stock trading, completely eliminating gas fees and seed phrases. Built on Expo, Dadawallet leverages Privy for embedded wallet infrastructure and Ondo Finance as on-chain stocks provider."
+    >
+      <div class="chips">
+        <span>Expo</span>
+        <span>Privy</span>
+        <span>Ondo Finance</span>
+      </div>
+      <a class="link" href="https://github.com/sergialca/dadawallet/tree/develop" target="_blank" rel="noreferrer">
+        View code on GitHub
+        <span aria-hidden="true">→</span>
+      </a>
+    </ProjectCopy>
+    <DadawalletPhones />
+  </article>
 
   <article class="card">
     <TodoPhones />
@@ -69,6 +90,14 @@ import TodoPhones from "./TodoPhones.astro";
     box-shadow: var(--shadow);
   }
 
+  .dadawallet {
+    grid-template-columns: minmax(240px, 0.85fr) minmax(0, 1.35fr);
+  }
+
+  .dadawallet :global(.desc) {
+    max-width: 48ch;
+  }
+
   .card + .card {
     margin-top: 1.15rem;
   }
@@ -90,6 +119,7 @@ import TodoPhones from "./TodoPhones.astro";
     display: flex;
     flex-wrap: wrap;
     gap: 0.45rem;
+    margin-bottom: 1.1rem;
   }
 
   .chips span {
@@ -103,6 +133,7 @@ import TodoPhones from "./TodoPhones.astro";
 
   @media (max-width: 900px) {
     .card,
+    .dadawallet,
     .taptime {
       grid-template-columns: 1fr;
       padding: 1.2rem;
